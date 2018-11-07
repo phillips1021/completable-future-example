@@ -14,7 +14,9 @@
 
     <Loggers>
         # Override log level for specified package
-        <Logger name="me.brucephillips" level="DEBUG"/>
+        <Logger name="me.brucephillips.example" level="DEBUG">
+                <AppenderRef ref="stdout" />
+        </Logger>
 
 
         <Root level="WARN">

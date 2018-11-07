@@ -22,7 +22,7 @@ public class Util {
    */
   public static void delay() {
 
-    int delay = 1000;
+    int delay = 2000;
 
 
     try {

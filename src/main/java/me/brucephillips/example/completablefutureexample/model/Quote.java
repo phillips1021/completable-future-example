@@ -26,7 +26,7 @@ public class Quote {
 
   public static Quote parse(String s) {
 
-    LOGGER.debug("Parsing " + s + " into a Quote");
+    LOGGER.info("Parsing " + s + " into a Quote");
 
     String[] split = s.split(":");
 

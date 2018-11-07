@@ -11,7 +11,10 @@ import me.brucephillips.example.completablefutureexample.service.BestPriceFinder
 import java.util.List;
 import java.util.function.Supplier;
 
-
+/**
+ * This class runs the overall application.
+ * You can use mvn spring-boot:run to run the application.
+ */
 @SpringBootApplication
 public class CompletableFutureExampleApplication {
 
@@ -46,15 +49,15 @@ public class CompletableFutureExampleApplication {
 
 	}
 
-	private static void execute(String msg, Supplier<List<String>> s) {
+	private static void execute(String msg, Supplier<List<String>> priceSuppliers) {
 
 		long start = System.nanoTime();
 
-		LOGGER.info("Prices found: " + s.get());
+		LOGGER.info("Prices found: " + priceSuppliers.get());
 
 		long duration = (System.nanoTime() - start) / 1_000_000;
 
-		LOGGER.debug(msg + " done in " + duration + " msecs");
+		LOGGER.info(msg + " done in " + duration + " msecs");
 
 	}
 }

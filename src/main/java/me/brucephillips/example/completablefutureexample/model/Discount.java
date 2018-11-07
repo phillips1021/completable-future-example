@@ -36,13 +36,16 @@ public class Discount {
    */
   public static String applyDiscount(Quote quote) {
 
-    LOGGER.debug("About to apply discount to " + quote);
+    LOGGER.info("About to apply discount to " + quote);
 
     return quote.getShopName() + " price is " + Discount.apply(quote.getPrice(), quote.getDiscountCode() ) + "\n";
 
   }
 
   private static double apply(double price, Code code) {
+
+
+    LOGGER.info("About to call delay in applying discount...");
 
     delay();
 

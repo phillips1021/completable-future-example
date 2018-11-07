@@ -56,8 +56,20 @@ public class BestPriceFinder {
 
   }
 
+  /**
+   * Create a Stream of CompletableFuture objects.
+   * @param product
+   * @return
+   */
   public Stream<CompletableFuture<String>> findPricesStream(String product) {
 
+    /*
+    Stream over the collection of shops
+    For each shop get the initial price
+    Then parse the String returned by getPrice
+    into a Quote object
+    Then apply the discount to the Quote
+     */
     return shops.stream()
         .map(shop -> CompletableFuture.supplyAsync(() -> shop.getPrice(product, shop), executor))
         .map(future -> future.thenApply(Quote::parse))

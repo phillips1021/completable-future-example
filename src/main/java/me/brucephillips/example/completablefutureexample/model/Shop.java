@@ -34,9 +34,15 @@ public class Shop {
 
     double price = calculatePrice(product);
 
-    Discount.Code code = Discount.Code.values()[productPrice.nextInt(Discount.Code.values().length)];
+    int randomInt = new Random().nextInt(Discount.Code.values().length);
 
-    String priceStr = shopName + ":" + price + " : Discount: " + code;
+    LOGGER.debug("Discount code randomInt is " + randomInt);
+
+    Discount.Code code = Discount.Code.values()[new Random().nextInt(Discount.Code.values().length)];
+
+
+
+    String priceStr = shopName + ":" + price + ":" + code;
 
     LOGGER.debug( priceStr );
 
@@ -44,6 +50,8 @@ public class Shop {
   }
 
   public double calculatePrice(String product) {
+
+    LOGGER.info("About to call delay...");
 
     delay();
 
