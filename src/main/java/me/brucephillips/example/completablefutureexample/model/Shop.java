@@ -30,13 +30,22 @@ public class Shop {
 
   public String getPrice(String product, Shop shop) {
 
-    LOGGER.debug("Getting price for " + product + " at " + shop);
+    LOGGER.info("Getting price for " + product + " at " + shop);
 
     double price = calculatePrice(product);
 
     int randomInt = new Random().nextInt(Discount.Code.values().length);
 
-    LOGGER.debug("Discount code randomInt is " + randomInt);
+
+    LOGGER.info("Discount code randomInt is " + randomInt);
+
+    if (randomInt > 3) {
+
+      LOGGER.info("Additional delay for getting price form " + shop.getShopName());
+
+      delay();
+
+    }
 
     Discount.Code code = Discount.Code.values()[new Random().nextInt(Discount.Code.values().length)];
 
@@ -44,7 +53,7 @@ public class Shop {
 
     String priceStr = shopName + ":" + price + ":" + code;
 
-    LOGGER.debug( priceStr );
+    LOGGER.info( "Price string is " + priceStr );
 
     return priceStr;
   }
